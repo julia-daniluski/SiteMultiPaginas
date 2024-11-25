@@ -20,7 +20,7 @@ figure {
   padding: 0;
 }
 body {
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 a {
@@ -83,7 +83,7 @@ h2 a {
 }
 
 .menu a {
-  color: black;
+  color: #5a0076;;
   font-weight: bold;
   background-color: #fff;
   display: flex;
@@ -177,7 +177,7 @@ iframe {
 }
 
 footer {
-  background-color: #000;
+  background-color: #5a0076;
   color: #fff;
   font-weight: bold;
   text-align: center;
