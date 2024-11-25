@@ -1,0 +1,36 @@
+    <script>
+        // Função para buscar o endereço pela API do ViaCEP
+        function buscarCEP() {
+            const cep = document.getElementById('cep').value.replace(/\D/g, ''); // Remove caracteres não numéricos
+            const status = document.getElementById('status');
+            
+            // Valida o CEP
+            if (cep.length === 8) {
+                status.textContent = 'Buscando endereço...';
+                
+                // Faz a requisição para a API ViaCEP
+                fetch(`https://viacep.com.br/ws/${cep}/json/`)
+                    .then(response => {
+                        if (!response.ok) throw new Error('Erro na consulta do CEP');
+                        return response.json();
+                    })
+                    .then(data => {
+                        if (data.erro) {
+                            throw new Error('CEP não encontrado');
+                        }
+
+                        // Preenche os campos com os dados retornados
+                        document.getElementById('endereco').value = data.logradouro || '';
+                        document.getElementById('bairro').value = data.bairro || '';
+                        document.getElementById('cidade').value = data.localidade || '';
+                        document.getElementById('estado').value = data.uf || '';
+                        status.textContent = 'Endereço encontrado!';
+                    })
+                    .catch(error => {
+                        status.textContent = error.message;
+                    });
+            } else {
+                status.textContent = 'CEP inválido.';
+            }
+        }
+    </script>
