@@ -5,35 +5,149 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minimalix - Página de Contato</title>
+
     <!-- Favicon -->
     <link rel="shortcut icon" href="imagens/favicon.png" type="image/x-icon">
+    
     <!-- CSS Externo -->
     <link rel="stylesheet" href="css/style.css">
 
+    <!-- Script para simular dados de resposta de uma API (ViaCEP) -->
     <script>
-
-        // Insira aqui o script do VIACEP <https://viacep.com.br/>
-        
-        {
-      "cep": "01001-000",
-      "logradouro": "Praça da Sé",
-      "complemento": "lado ímpar",
-      "unidade": "",
-      "bairro": "Sé",
-      "localidade": "São Paulo",
-      "uf": "SP",
-      "estado": "São Paulo",
-      "regiao": "Sudeste",
-      "ibge": "3550308",
-      "gia": "1004",
-      "ddd": "11",
-      "siafi": "7107"
-    }
-
-
+        // Exemplo de resposta da API do VIACEP para demonstração
+        const endereco = {
+            "cep": "01001-000",
+            "logradouro": "Praça da Sé",
+            "complemento": "lado ímpar",
+            "unidade": "",
+            "bairro": "Sé",
+            "localidade": "São Paulo",
+            "uf": "SP",
+            "estado": "São Paulo",
+            "regiao": "Sudeste",
+            "ibge": "3550308",
+            "gia": "1004",
+            "ddd": "11",
+            "siafi": "7107"
+        };
+        console.log(endereco);  // Exibe os dados no console
     </script>
 </head>
+
 <body>
+
+    <!-- Cabeçalho com menu de navegação -->
+    <header>
+        <nav class="menu">
+            <ul>
+                <li><a href="index.html" title="Página inicial">Home</a></li>
+                <li><a href="produtos.html" title="Conheça nossos produtos">Produtos</a></li>
+                <li><a href="services.html" title="Criação de sites e lojas virtuais, conheça nossos serviços">Serviços</a></li>
+                <li><a href="contato.html" title="Fale com nossa equipe">Contatos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Seção principal da página de contato -->
+    <main>
+        <section class="conteudo">
+            <h2>Contato</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero dolorum, maxime et consequatur architecto perspiciatis. Facilis sapiente magni accusantium consectetur qui dolores, consequatur auten lusto sunt.</p>
+        </section>
+
+        <!-- Formulário de contato -->
+        <form action="https://formspree.io/f/XXXXXX" method="post" id="my-form">
+            <!-- Nome do usuário -->
+            <div>
+                <label for="nome">Nome: </label>
+                <input type="text" name="nome" id="nome" required>
+            </div>
+
+            <!-- E-mail do usuário -->
+            <div>
+                <label for="email">E-mail:</label>
+                <input type="email" name="email" id="email" required>
+            </div>
+
+            <!-- Data de nascimento -->
+            <div>
+                <label for="data">Data de nascimento:</label>
+                <input type="date" name="data" id="data">
+            </div>
+
+            <!-- Telefone -->
+            <div>
+                <label for="telefone">Telefone: </label>
+                <input type="tel" name="telefone" id="telefone" placeholder="Digite apenas números, incluindo o DDD">
+            </div>
+
+            <!-- CPF ou CNPJ -->
+            <div>
+                <label for="documento">CPF ou CNPJ:</label>
+                <input type="tel" name="documento" id="documento">
+            </div>
+
+            <!-- Idade -->
+            <div>
+                <label for="idade">Idade: </label>
+                <input type="number" name="idade" id="idade" min="18" max="120">
+            </div>
+
+            <!-- Gênero -->
+            <div>
+                <p>Gênero:</p>
+                <input type="radio" name="genero" id="masculino" value="masculino"> <label for="masculino">Masculino</label>
+                <input type="radio" name="genero" id="feminino" value="feminino"> <label for="feminino">Feminino</label>
+                <input type="radio" name="genero" id="outros" value="outros"> <label for="outros">Outros</label>
+            </div>
+
+            <!-- Interesses -->
+            <div>
+                <p>Interesses:</p>
+                <input type="checkbox" name="interesses" id="design" value="design"> <label for="design">Design</label>
+                <input type="checkbox" name="interesses" id="marketing" value="marketing"> <label for="marketing">Marketing</label>
+                <input type="checkbox" name="interesses" id="programacao" value="programacao"> <label for="programacao">Programação</label>
+            </div>
+
+            <!-- Campo de CEP -->
+            <div>
+                <label for="cep">CEP: </label>
+                <input type="text" id="cep" name="cep" maxlength="9" onblur="buscarCEP()" required> <b id="status"></b>
+            </div>
+
+            <!-- Campos de endereço -->
+            <div>
+                <label for="endereco">Endereço: </label>
+                <input type="text" name="endereco" id="endereco" size="30">
+            </div>
+
+            <!-- Bairro -->
+            <div>
+                <label for="bairro">Bairro: </label>
+                <input type="text" name="bairro" id="bairro">
+            </div>
+
+            <!-- Cidade -->
+            <div>
+                <label for="cidade">Cidade:</label>
+                <input type="text" name="cidade" id="cidade">
+            </div>
+
+            <!-- Estado -->
+            <div>
+                <label for="estado">Estado: </label>
+                <input type="text" name="estado" id="estado">
+            </div>
+
+            <!-- Botão de envio -->
+            <button type="submit">Enviar dados</button>
+        </form>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>Site fictício desenvolvido para fins didáticos &copy; | Alguns Direitos Reservados | 2024</p>
+    </footer>
 
 </body>
 </html>
